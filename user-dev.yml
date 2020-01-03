@@ -1,16 +1,18 @@
-server:
-  port: ${port:10086}
 spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring-test
+    username: root
+    password: root
   application:
-    name: eureka-server
+    name: user-service
+server:
+  port: ${port:9091}
+mybatis:
+  type-aliases-package: com.itheima.user.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:10086/eureka
-    # 不注册自己
-    register-with-eureka: false
-    # 不拉取服务
-    fetch-registry: false
-  instance:
-    ip-address: 127.0.0.1
-    prefer-ip-address: true
+      defaultZone: http://localhost:10086/eureka/
