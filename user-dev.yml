@@ -1,0 +1,16 @@
+server:
+  port: ${port:10086}
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    # 不注册自己
+    register-with-eureka: false
+    # 不拉取服务
+    fetch-registry: false
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
